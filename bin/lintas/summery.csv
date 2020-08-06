@@ -1,3 +1,13 @@
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1596699512469,1816,Login,200,OK,IFF 1-1,text,true,,64942,0,2,2,http://10.64.2.169:3011/dashboard,0,0,0
-1596699514145,1984,Login,200,OK,IFF 1-2,text,true,,64942,0,1,1,http://10.64.2.169:3011/dashboard,0,0,0
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="2847" it="0" lt="0" ct="0" ts="1596752143506" s="true" lb="Login" rc="200" rm="OK" tn="IFF 1-1" dt="text" by="64816" sby="0" ng="3" na="3">
+  <java.net.URL>http://10.64.2.169:3011/dashboard</java.net.URL>
+</sample>
+<sample t="2659" it="0" lt="0" ct="0" ts="1596752146951" s="true" lb="Login" rc="200" rm="OK" tn="IFF 1-2" dt="text" by="64816" sby="0" ng="2" na="2">
+  <java.net.URL>http://10.64.2.169:3011/dashboard</java.net.URL>
+</sample>
+<sample t="2599" it="0" lt="0" ct="0" ts="1596752150153" s="true" lb="Login" rc="200" rm="OK" tn="IFF 1-3" dt="text" by="64816" sby="0" ng="1" na="1">
+  <java.net.URL>http://10.64.2.169:3011/dashboard</java.net.URL>
+</sample>
+
+</testResults>
