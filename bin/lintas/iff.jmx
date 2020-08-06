@@ -27,7 +27,7 @@
       </ThreadGroup>
       <hashTree>
         <com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.RemoteDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig" testname="jp@gc - Remote Driver Config" enabled="true">
-          <stringProp name="RemoteDriverConfig.general.selenium.grid.url">http://127.0.0.1:4444/wd/hub</stringProp>
+          <stringProp name="RemoteDriverConfig.general.selenium.grid.url">http://selenium:4444/wd/hub</stringProp>
           <stringProp name="RemoteDriverConfig.general.selenium.capability">CHROME</stringProp>
           <stringProp name="RemoteDriverConfig.general.selenium.file.detector">USELESS</stringProp>
         </com.googlecode.jmeter.plugins.webdriver.config.RemoteDriverConfig>
