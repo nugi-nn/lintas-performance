@@ -440,6 +440,48 @@ WDS.sampleResult.sampleEnd()
           <stringProp name="filename">/Users/noviantonugroho/Documents/xapiens/lintas/performance/bin/lintas/summery.csv</stringProp>
         </ResultCollector>
         <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+&quot;query&quot;: &quot;query{ suggestPackagesByCargoManifestId (cargoId: 10, cargoManifestId: 10 filter: { search: [{field: \&quot;cargoId\&quot; keyword: \&quot;NULL\&quot; keywordType: NULL }        ]      limit: 999    }  ) {  data {     id      packageNo    referenceNo    materialDescription    itemQty    uom    uomLength    uomVolume     uomWeight     length        width        height    volume      weight       dangerousGoods        remarks      manifestPackages        createdAt       createdBy {       name       company     }   }   total}}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">lintas-ff-api-pre-prod</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-token</stringProp>
+                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJlbWFpbCI6ImdhbHVoLmphdGlAeGFwaWVucy5pZCIsIm5hbWUiOiJHYWx1aCBTYXRyaXlhIEphdGkiLCJ1c2VyVHlwZUlkIjoxLCJ1c2VyVHlwZUNvZGUiOiJJbnRlcm5hbCIsInJvbGVJZCI6MywiY29tcGFueSI6IlhhcGllbnMiLCJpYXQiOjE1OTcyMjEwODIsImV4cCI6MTU5NzMwNzQ4Mn0.C5EZtpNnL6JUVZ6u8SkG9b-MKF56T84ounWcGJV1Jpo</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
       </hashTree>
     </hashTree>
   </hashTree>
