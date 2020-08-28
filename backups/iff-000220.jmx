@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -440,7 +440,7 @@
           <stringProp name="filename">/Users/noviantonugroho/Documents/xapiens/lintas/performance/bin/lintas/summery.csv</stringProp>
         </ResultCollector>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="suggestPackagesByCargoManifestId" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -457,7 +457,7 @@
           <stringProp name="HTTPSampler.port">443</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
+          <stringProp name="HTTPSampler.path">lintas-ff-api-pre-prod</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -472,326 +472,14 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
+                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTgzMTkzODksImV4cCI6MTU5ODQwNTc4OX0.fWEEHOFXzhD0M3xFWIcUyhCURTUR4ArM3o5Ke2cHTV8</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">application/json</stringProp>
               </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
             </collectionProp>
           </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AllOrders" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-&quot;query&quot;: &quot;query{ allOrders(planning: false, filter:{orderBy: \&quot;orderNo\&quot;}){   data {     id     orderNo     information{       id        order{          id       }       purchaseOrderNo       contractNo       contractTitle        contractualCustomer       referencesOrdersNo        referencesDocumentsNo        supportProjectName        isPLBGoods        cargoOwnerName       cargoOwnerEmail        cargoOwnerPhone        cargoOwnerCompany        contractualCustomer        shippingTerms        shippingType{          id        }        shippingTypeCode        serviceTypeCode        additionalService{          id        }        additionalServiceCode        serviceType{          id        }      }      documents{        id        order{          orderNo        }        documentUrl        documentTitle        isMobile        createdBy        {          id          name        }        createdAt        modifiedBy        {          id          name        }        updatedAt        deletedAt      }      packingList{        id       order{         id          orderNo        }        packingListNo        totalRow        destination{          id        }       workOrder{          id        }        origin{          id        }        destination{          id        }        workOrder{          id        }        package{          id        }        createdBy{          id        }        modifiedBy{          id       }     }      createdBy{        id      }      createdAt     updatedAt      deletedAt      orderType      rejectionRemark    }   total  }}&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AllUom" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-&quot;query&quot;: &quot;query{ allUom(filter:{skip:0, search: [{field: \&quot;status\&quot;, keyword: \&quot;true\&quot;}]}) {   data{     id     initialValue     uomOrigin     convertedValue     uomConverted      uomType      status      modifiedByUser{        id      }      updatedAt      deletedAt    }  }}&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AllExecutions" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-&quot;query&quot;: &quot;query{  allExecution(filter:{skip:0, orderBy: \&quot;workOrderNo\&quot;  }){    data{      id      packingList{        id        order{          id        }        packingListNo        totalRow        origin{          id        }        destination{          id        }        workOrder{          id          packingList{            id          }          workOrderNo          workOrderSequence          assignment{            id          }          workflow{            id          }          workOrderStatus{            id          }          transportation          estTimeArrivial          estTimeDeparture          origin{            id          }          destination{            id          }          documents{            id          }          completionDate          lastStatus          createdBy{            id          }          modifiedBy{            id          }          createdAt          updatedAt          deletedAt        }        package{          id          packageNo          ajuNo          referenceNo          materialDescription          itemQty          cargoPackages{            id          }          uom          uomDetail{          id          }          uomLength          uomVolume          uomWeight          uomLengthDetail{            id          }          uomVolumeDetail{            id          }          uomWeightDetail{            id          }          dangerousGoods          remarks        }        createdBy{          id          name          email          title          company          address          companyName          companyEmail        }        modifiedBy{          id          name          email          title          company          address          companyName          companyEmail        }      }      workOrderNo      assignment{        id        businessPartner{          id        }        partner{          id        }        location{          id        }        isActive        modifiedByUser{          id        }        createdByUser{          id        }        updatedAt        deletedAt      }      transportation      origin{        id      }      destination{        id      }      estTimeDeparture      estTimeArrivial      workflowId{        id      }      documents{        id      }      workOrderStatus{        id      }      completionDate      lastStatus    }  }}&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OrderTracking" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-&quot;query&quot;: &quot;query{  orderTracking(orderNo: \&quot;20070066\&quot;){    id    orderNo    status    information    {purchaseOrderNo          contractNo          contractTitle          contractualCustomer          referencesOrdersNo          referencesDocumentsNo          supportProjectName          isPLBGoods          cargoOwnerName          cargoOwnerCompany          cargoOwnerEmail          cargoOwnerPhone          shippingTerms          createdAt          createdBy {            name            company          }}  createdBy {        name        company      }  documents{id documentUrl        documentTitle       createdBy{          name          company        }        createdAt}    packingList{id packingListNo workOrder{workOrderNo          estTimeDeparture          estTimeArrivial         origin {            city          } destination{city} workflow {            workflowStep{              stepSequence            }step {              id              stepCode              stepName              customerViewName            }          } workOrderStatus {            workflowStep {              step {                id                stepName              }            }executionTime            location            exception {              exceptionDescription            }            remarks          }}}       modifiedBy{id}    createdAt    updatedAt    deletedAt    orderType    rejectionRemark  }}&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetWorkOrderByCargoManifestId" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-&quot;query&quot;: &quot;query {getWorkOrderByCargoManifestId(cargoManifestId: 11) {      data {        id        workOrderNo        workOrderSequence        packingList {          order {            information {              cargoOwnerName              cargoOwnerCompany            }          }        }        assignment {          businessPartner {            id            vendorNo            partnerCode            partnerName            email            phone            address          }        }        workflow {          id          workflowCode          workflowName          isActive        }        transportation        estTimeArrivial        estTimeDeparture        completionDate        origin {          id          locationCode          IATACode          portCode          locationName          city          provinceStateRegion          country          postalCode        }        destination {          id          locationCode          IATACode          portCode          locationName          city          provinceStateRegion          country          postalCode        }        createdBy {          name          company        }        createdAt        updatedAt        lastStatus        workOrderStatus {          workflowStep {            step {              stepCode              stepName            }          }        }      }      total    }  }&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">edge-jkt1.interport.co.id</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">lintas-ff-api</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">x-token</stringProp>
-                <stringProp name="Header.value">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJzdUB4YXBpZW5zLmlkIiwibmFtZSI6InN1IiwidXNlclR5cGVJZCI6MSwidXNlclR5cGVDb2RlIjoiSW50ZXJuYWwiLCJyb2xlSWQiOjMsImNvbXBhbnkiOiJJTlRFUlBPUlQiLCJpYXQiOjE1OTg1NzgzNzMsImV4cCI6MTU5ODY2NDc3M30.G8NXenTP_TFSISX76LYM1-zBUXgFIyqLOVCAdLQsVC4</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic bGludGFzOkt5KVNFWkg3XVRGJXlyXCE=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url">https://edge-jkt1.interport.co.id/lintas-ff-api</stringProp>
-                <stringProp name="Authorization.username">lintas</stringProp>
-                <stringProp name="Authorization.password">ffl1nt@s_4dm1n</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
-          </AuthManager>
           <hashTree/>
         </hashTree>
       </hashTree>
